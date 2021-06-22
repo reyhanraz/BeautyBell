@@ -53,13 +53,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         initUI()
         buttonFacebook.delegate = self
-
+        checkLoginViaFB()
+// For google sign in, not finished yet
 //        GIDSignIn.sharedInstance().presentingViewController = self
 //        if GIDSignIn.sharedInstance().currentUser != nil {
 //            
 //        }else{
 //            GIDSignIn.sharedInstance().signIn()
 //        }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        layoutUI()
+    }
+}
+
+extension ViewController{
+    func checkLoginViaFB(){
         if let token = AccessToken.current,!token.isExpired {
             let token = token.tokenString
             let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], tokenString: token, version: nil, httpMethod: .get)
@@ -68,11 +79,6 @@ class ViewController: UIViewController {
             }
             buttonTapped()
         }
-                // User is logged in, do work such as go to next view controller.
-        }
-    
-    override func viewWillLayoutSubviews() {
-        layoutUI()
     }
     
     func initUI(){
@@ -144,10 +150,7 @@ class ViewController: UIViewController {
         tabVC.addChild(HomeViewController())
         tabVC.addChild(ProfileViewController())
         self.navigationController?.pushViewController(tabVC, animated: true)
-        print("klik")
     }
-
-
 }
 extension ViewController: LoginButtonDelegate{
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {

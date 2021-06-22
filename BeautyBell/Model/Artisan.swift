@@ -22,11 +22,3 @@ struct Artisan: Codable {
         case services
     }
 }
-
-// MARK: - Service
-struct Service: Codable {
-    let name: String
-    let price: String
-    let caption: String
-}
-

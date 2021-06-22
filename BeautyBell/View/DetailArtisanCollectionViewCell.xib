@@ -16,10 +16,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="185"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-qq-2Ep">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-qq-2Ep">
                         <rect key="frame" x="82" y="30.5" width="48" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="0Cf-dj-OwF"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="0Cf-dj-OwF"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>

@@ -42,7 +42,6 @@ class APIServices {
             do{
                 let artisan = try JSONDecoder().decode(Artisan.self, from: data)
                 let listService = artisan.services
-                print(listService)
                 self.servicescallBack?(listService, true, "")
             }catch{
                 self.servicescallBack?(nil, false, error.localizedDescription)

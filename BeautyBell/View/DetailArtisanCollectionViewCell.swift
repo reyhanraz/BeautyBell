@@ -29,6 +29,9 @@ class DetailArtisanCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 2.0
+        self.layer.cornerRadius = 10
     }
 
 }

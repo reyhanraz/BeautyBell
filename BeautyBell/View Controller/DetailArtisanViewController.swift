@@ -8,6 +8,22 @@
 import UIKit
 
 class DetailArtisanViewController: UIViewController {
+    lazy var imageArtisan: UIImageView = {
+        let image = UIImageView()
+        image.layer.cornerRadius = 75
+        image.image = UIImage(named: "Placeholder")
+        return image
+    }()
+    lazy var lblArtisanName: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Name"
+        return lbl
+    }()
+    lazy var lblArtisanDesc: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Description"
+        return lbl
+    }()
     lazy var collectionView: UICollectionView = {
        let collView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         collView.register(UINib(nibName: "DetailArtisanCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailArtisanCollectionViewCell")
@@ -20,9 +36,43 @@ class DetailArtisanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.parent?.title = "Detail Artisan"
         view.backgroundColor = .white
-        view.addSubview(collectionView)
+        initUI()
         fetchDetailArtisan()
+        setupCollectionView()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        layoutCollectionView()
+    }
+
+}
+
+extension DetailArtisanViewController{
+    private func initUI(){
+        view.addSubview(collectionView)
+        view.addSubview(imageArtisan)
+        view.addSubview(lblArtisanName)
+        view.addSubview(lblArtisanDesc)
+
+    }
+    private func fetchDetailArtisan(){
+        APIservice!.getAllServises(artisanID!)
+        APIservice?.completionHandlerServices { [weak self] services, status, message in
+            if status{
+                guard let self = self else {return}
+                guard let _services = services else {
+                    return
+                }
+                self.services = _services
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
+    private func setupCollectionView(){
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 0)
@@ -35,32 +85,31 @@ class DetailArtisanViewController: UIViewController {
         collectionView.backgroundColor = UIColor.clear
     }
     
-    override func viewWillLayoutSubviews() {
+    private func layoutCollectionView(){
+        imageArtisan.translatesAutoresizingMaskIntoConstraints = false
+        imageArtisan.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        imageArtisan.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        imageArtisan.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        imageArtisan.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        lblArtisanName.translatesAutoresizingMaskIntoConstraints = false
+        lblArtisanName.leadingAnchor.constraint(equalTo: imageArtisan.trailingAnchor, constant: 20).isActive = true
+        lblArtisanName.topAnchor.constraint(equalTo: imageArtisan.topAnchor).isActive = true
+        lblArtisanName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
+        lblArtisanName.heightAnchor.constraint(equalToConstant: 40).isActive = true
+
+        lblArtisanDesc.translatesAutoresizingMaskIntoConstraints = false
+        lblArtisanDesc.leadingAnchor.constraint(equalTo: imageArtisan.leadingAnchor).isActive = true
+        lblArtisanDesc.topAnchor.constraint(equalTo: imageArtisan.bottomAnchor, constant: 16).isActive = true
+        lblArtisanDesc.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
+        lblArtisanDesc.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        collectionView.topAnchor.constraint(equalTo: lblArtisanDesc.bottomAnchor, constant: 50).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
-    
-    private func fetchDetailArtisan(){
-    APIservice!.getAllServises(artisanID!)
-    APIservice?.completionHandlerServices { [weak self] services, status, message in
-
-        if status{
-            guard let self = self else {return}
-            guard let _services = services else {
-                return
-            }
-            self.services = _services
-            print(self.services)
-
-                self.collectionView.reloadData()
-            
-        }
-    }
-    }
-
 }
 
 extension DetailArtisanViewController: UICollectionViewDelegate, UICollectionViewDataSource{
