@@ -14,14 +14,12 @@ class DetailArtisanCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var labelServicePrice: UILabel!
     @IBOutlet weak var labelServiceCaption: UILabel!
     var urlImage: String?
-    var service: Service? {
+    var service: ServiceViewModel? {
         didSet{
             self.imageService.backgroundColor = .lightGray
-            self.labelServiceName.text = service?.name
-            self.labelServicePrice.text = "Price: Rp." + service!.price
-            self.labelServiceCaption.text = service?.caption
-            
-            
+            self.labelServiceName.text = service?.serviceName
+            self.labelServicePrice.text = "Price: Rp." + service!.servicePrice
+            self.labelServiceCaption.text = service?.serviceCaption
         }
     }
 

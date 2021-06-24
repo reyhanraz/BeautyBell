@@ -14,9 +14,9 @@ class HomeViewController: UIViewController {
         tableVIew.register(UINib(nibName: "ArtisanTableViewCell", bundle: nil), forCellReuseIdentifier: "ArtisanTableViewCell")
         return tableVIew
     }()
-    var Artisans = [Artisan]()
-    var searchResult = [Artisan]()
-    let service = APIServices(baseURL: "https://604048b4f34cf600173c7cda.mockapi.io/api/v1/list-artisan")
+    var Artisans = [ArtisanViewModel]()
+    var searchResult = [ArtisanViewModel]()
+    let service = APIServices()
     let searchController = UISearchController(searchResultsController: nil)
 
 
@@ -52,7 +52,7 @@ extension HomeViewController{
                 guard let _artisans = artisans else {
                     return
                 }
-                self.Artisans = _artisans
+                self.Artisans = _artisans.map({ArtisanViewModel(Artisan: $0)})
                 self.tableView.reloadData()
             }
         }
@@ -66,8 +66,9 @@ extension HomeViewController{
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     func filterContent(for searchText: String) {
-            searchResult = Artisans.filter({ (artisan: Artisan) -> Bool in
-                let match = artisan.name.range(of: searchText, options: .caseInsensitive)
+        
+        searchResult = Artisans.filter({ (artisan: ArtisanViewModel) -> Bool in
+            let match = artisan.artisanName.range(of: searchText, options: .caseInsensitive)
                 return match != nil
             })
         }
@@ -81,15 +82,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArtisanTableViewCell") as! ArtisanTableViewCell
-        let artisan = searchController.isActive ? searchResult[indexPath.row] : Artisans[indexPath.row]
-        cell.artisan = artisan
+        let artisanViewModel = searchController.isActive ? searchResult[indexPath.row] : Artisans[indexPath.row]
+        cell.artisanViewModel = artisanViewModel
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detilVC = DetailArtisanViewController()
-        detilVC.APIservice = service
-        detilVC.artisanID = Artisans[indexPath.row].id
+        let detilVC = DetailArtisanViewController(artisan: Artisans[indexPath.row])
         self.navigationController?.pushViewController(detilVC, animated: true)
     }
 }

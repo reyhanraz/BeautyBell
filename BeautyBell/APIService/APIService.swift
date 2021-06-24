@@ -9,19 +9,15 @@ import Foundation
 import Alamofire
 
 class APIServices {
-    //https://604048b4f34cf600173c7cda.mockapi.io/api/v1/list-artisan
-    fileprivate var baseURL = ""
+    static let baseURL = "https://604048b4f34cf600173c7cda.mockapi.io/api/v1/list-artisan"
     typealias artisansCallback = (_ artisans:[Artisan]?, _ status: Bool, _ message: String) -> Void
     var callBack: artisansCallback?
     typealias servicesCallback = (_ services:[Service]?, _ status: Bool, _ message: String) -> Void
     var servicescallBack: servicesCallback?
     
-    init(baseURL: String) {
-        self.baseURL = baseURL
-    }
     
     func getAllArtisan(){
-        AF.request(baseURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { responseData in
+        AF.request(APIServices.baseURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { responseData in
             guard let data = responseData.data else {
                 self.callBack?(nil, false, "")
                 return}
@@ -35,7 +31,7 @@ class APIServices {
     }
     
     func getAllServises(_ artisanID: String){
-        AF.request(baseURL+"/"+artisanID, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { [self] responseData in
+        AF.request(APIServices.baseURL+"/"+artisanID, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response { [self] responseData in
             guard let data = responseData.data else {
                 self.servicescallBack?(nil, false, "")
                 return}

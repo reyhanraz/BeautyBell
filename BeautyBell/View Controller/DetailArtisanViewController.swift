@@ -22,6 +22,7 @@ class DetailArtisanViewController: UIViewController {
     lazy var lblArtisanDesc: UILabel = {
         let lbl = UILabel()
         lbl.text = "Description"
+        lbl.numberOfLines = 0
         return lbl
     }()
     lazy var collectionView: UICollectionView = {
@@ -30,9 +31,17 @@ class DetailArtisanViewController: UIViewController {
         
         return collView
     }()
-    var services = [Service]()
-    var APIservice: APIServices?
-    var artisanID: String?
+    var services = [ServiceViewModel]()
+    var artisanViewModel: ArtisanViewModel?
+    
+    init(artisan: ArtisanViewModel) {
+        super.init(nibName: nil, bundle: nil)
+        self.artisanViewModel = artisan
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,17 +65,24 @@ extension DetailArtisanViewController{
         view.addSubview(imageArtisan)
         view.addSubview(lblArtisanName)
         view.addSubview(lblArtisanDesc)
-
+        artisanViewModel?.loadImage(completion: { image in
+            DispatchQueue.main.async {
+                self.imageArtisan.image = image
+            }
+        })
+        self.lblArtisanName.text = artisanViewModel?.artisanName
+        self.lblArtisanDesc.text = artisanViewModel?.artisanDescString
     }
     private func fetchDetailArtisan(){
-        APIservice!.getAllServises(artisanID!)
-        APIservice?.completionHandlerServices { [weak self] services, status, message in
+        let APIservice = APIServices()
+        APIservice.getAllServises(artisanViewModel!.artisanID)
+        APIservice.completionHandlerServices { [weak self] services, status, message in
             if status{
                 guard let self = self else {return}
                 guard let _services = services else {
                     return
                 }
-                self.services = _services
+                self.services = _services.map({ServiceViewModel(service: $0)})
                 self.collectionView.reloadData()
             }
         }
@@ -102,7 +118,7 @@ extension DetailArtisanViewController{
         lblArtisanDesc.leadingAnchor.constraint(equalTo: imageArtisan.leadingAnchor).isActive = true
         lblArtisanDesc.topAnchor.constraint(equalTo: imageArtisan.bottomAnchor, constant: 16).isActive = true
         lblArtisanDesc.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
-        lblArtisanDesc.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        lblArtisanDesc.heightAnchor.constraint(greaterThanOrEqualToConstant: 40).isActive = true
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: lblArtisanDesc.bottomAnchor, constant: 50).isActive = true

@@ -14,19 +14,19 @@ class ArtisanTableViewCell: UITableViewCell {
     @IBOutlet weak var imageArtisan: UIImageView!
     @IBOutlet weak var labelArtisanName: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
-    var imageURL: String?
     
-    var artisan: Artisan?{
+    var artisanViewModel: ArtisanViewModel? {
         didSet{
-            labelArtisanName.text = artisan?.name
-            labelDescription.text = artisan?.description
-            guard let imageURL = artisan?.avatar else {return}
-            DispatchQueue.main.async {
-                self.imageArtisan.af.setImage(withURL: URL(string: imageURL)!,placeholderImage: UIImage(named: "PlaceHolder"))
-            }
-            
+            self.labelArtisanName.text = artisanViewModel?.artisanName
+            self.labelDescription.text = artisanViewModel?.artisanDescString
+            artisanViewModel?.loadImage(completion: { image in
+                DispatchQueue.main.async {
+                    self.imageArtisan.image = image
+                }
+            })
         }
     }
+        
     
     override func awakeFromNib() {
         super.awakeFromNib()
