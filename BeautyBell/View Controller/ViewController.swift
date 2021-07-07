@@ -6,10 +6,9 @@
 //
 
 import UIKit
-//import FirebaseAuth
-import GoogleSignIn
-import FBSDKLoginKit
 import FirebaseAuth
+import FBSDKLoginKit
+import GoogleSignIn
 
 
 class ViewController: UIViewController {
@@ -43,24 +42,29 @@ class ViewController: UIViewController {
         btn.permissions = ["public_profile", "email"]
         return btn
     }()
-    lazy var buttonGoogle: GIDSignInButton = {
-        let btn = GIDSignInButton()
-        return btn
-    }()
+    
+    private let buttonGoogle = GIDSignInButton()
+
+    private var loginObserver: NSObjectProtocol?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
         buttonFacebook.delegate = self
-        checkLoginViaFB()
-// For google sign in, not finished yet
-//        GIDSignIn.sharedInstance().presentingViewController = self
-//        if GIDSignIn.sharedInstance().currentUser != nil {
-//            
-//        }else{
-//            GIDSignIn.sharedInstance().signIn()
-//        }
+        loginObserver = NotificationCenter.default.addObserver(forName: .didLogInNotification, object: nil, queue: .main, using: { [weak self] _ in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.buttonTapped()
+        })
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        buttonFacebook.delegate = self
+    }
+    deinit {
+        if let observer = loginObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -76,8 +80,9 @@ extension ViewController{
             let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], tokenString: token, version: nil, httpMethod: .get)
             request.start { connection, result, error in
                 print("\(result)")
+                self.buttonTapped()
+
             }
-            buttonTapped()
         }
     }
     
@@ -158,6 +163,7 @@ extension ViewController: LoginButtonDelegate{
         let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], tokenString: token, version: nil, httpMethod: .get)
         request.start { connection, result, error in
             print("\(result)")
+            self.buttonTapped()
         }
     }
     

@@ -91,7 +91,7 @@ extension DetailArtisanViewController{
     private func setupCollectionView(){
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 5)
         layout.minimumInteritemSpacing = 4.0
         layout.minimumLineSpacing = 4.0
         layout.itemSize = CGSize(width: 180, height: 185)

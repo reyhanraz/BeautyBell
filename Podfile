@@ -8,12 +8,15 @@ target 'BeautyBell' do
   # Pods for BeautyBell
 pod 'Alamofire', '~> 5.4'
 pod 'AlamofireImage', '~> 4.1'
+
 pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
+
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
-pod 'Firebase/Firestore'
-
+pod 'Firebase/Database'
+pod 'Firebase/Storage'
+pod 'Firebase/Analytics'
 
     
 
