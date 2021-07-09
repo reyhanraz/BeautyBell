@@ -151,10 +151,7 @@ extension ViewController{
     }
     
     @objc func buttonTapped(){
-        let tabVC = UITabBarController()
-        tabVC.addChild(HomeViewController())
-        tabVC.addChild(ProfileViewController())
-        self.navigationController?.pushViewController(tabVC, animated: true)
+        self.navigationController?.pushViewController(TabBarViewController(), animated: true)
     }
 }
 extension ViewController: LoginButtonDelegate{

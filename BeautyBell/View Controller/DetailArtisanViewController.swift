@@ -8,23 +8,7 @@
 import UIKit
 
 class DetailArtisanViewController: UIViewController {
-    lazy var imageArtisan: UIImageView = {
-        let image = UIImageView()
-        image.layer.cornerRadius = 75
-        image.image = UIImage(named: "Placeholder")
-        return image
-    }()
-    lazy var lblArtisanName: UILabel = {
-        let lbl = UILabel()
-        lbl.text = "Name"
-        return lbl
-    }()
-    lazy var lblArtisanDesc: UILabel = {
-        let lbl = UILabel()
-        lbl.text = "Description"
-        lbl.numberOfLines = 0
-        return lbl
-    }()
+    var artisanHeader = DetailArtisanHeader()
     lazy var collectionView: UICollectionView = {
        let collView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         collView.register(UINib(nibName: "DetailArtisanCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailArtisanCollectionViewCell")
@@ -47,7 +31,7 @@ class DetailArtisanViewController: UIViewController {
         super.viewDidLoad()
         self.parent?.title = "Detail Artisan"
         view.backgroundColor = .white
-        initUI()
+        initUI(artiasn: artisanViewModel!)
         fetchDetailArtisan()
         setupCollectionView()
     }
@@ -60,18 +44,10 @@ class DetailArtisanViewController: UIViewController {
 }
 
 extension DetailArtisanViewController{
-    private func initUI(){
+    private func initUI(artiasn: ArtisanViewModel){
+        artisanHeader.artisan = artiasn
         view.addSubview(collectionView)
-        view.addSubview(imageArtisan)
-        view.addSubview(lblArtisanName)
-        view.addSubview(lblArtisanDesc)
-        artisanViewModel?.loadImage(completion: { image in
-            DispatchQueue.main.async {
-                self.imageArtisan.image = image
-            }
-        })
-        self.lblArtisanName.text = artisanViewModel?.artisanName
-        self.lblArtisanDesc.text = artisanViewModel?.artisanDescString
+        view.addSubview(artisanHeader)
     }
     private func fetchDetailArtisan(){
         let APIservice = APIServices()
@@ -102,26 +78,16 @@ extension DetailArtisanViewController{
     }
     
     private func layoutCollectionView(){
-        imageArtisan.translatesAutoresizingMaskIntoConstraints = false
-        imageArtisan.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        imageArtisan.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        imageArtisan.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        imageArtisan.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        lblArtisanName.translatesAutoresizingMaskIntoConstraints = false
-        lblArtisanName.leadingAnchor.constraint(equalTo: imageArtisan.trailingAnchor, constant: 20).isActive = true
-        lblArtisanName.topAnchor.constraint(equalTo: imageArtisan.topAnchor).isActive = true
-        lblArtisanName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
-        lblArtisanName.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
-        lblArtisanDesc.translatesAutoresizingMaskIntoConstraints = false
-        lblArtisanDesc.leadingAnchor.constraint(equalTo: imageArtisan.leadingAnchor).isActive = true
-        lblArtisanDesc.topAnchor.constraint(equalTo: imageArtisan.bottomAnchor, constant: 16).isActive = true
-        lblArtisanDesc.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
-        lblArtisanDesc.heightAnchor.constraint(greaterThanOrEqualToConstant: 40).isActive = true
+        artisanHeader.translatesAutoresizingMaskIntoConstraints = false
+        artisanHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        artisanHeader.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        artisanHeader.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        artisanHeader.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: lblArtisanDesc.bottomAnchor, constant: 50).isActive = true
+        collectionView.topAnchor.constraint(equalTo: artisanHeader.bottomAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

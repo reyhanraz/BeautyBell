@@ -33,6 +33,9 @@
 		4BF09BA0268393FC00DC8F07 /* ArtisanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B9F268393FC00DC8F07 /* ArtisanViewModel.swift */; };
 		4BF09BA226842B5500DC8F07 /* ServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09BA126842B5500DC8F07 /* ServiceViewModel.swift */; };
 		4BF9785126959B1500D6873A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9785026959B1500D6873A /* Extension.swift */; };
+		4BF97853269835B700D6873A /* DetailArtisanHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF97852269835B700D6873A /* DetailArtisanHeader.swift */; };
+		4BF97855269835D800D6873A /* DetailArtisanHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF97854269835D800D6873A /* DetailArtisanHeader.xib */; };
+		4BF97857269881FE00D6873A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF97856269881FE00D6873A /* TabBarViewController.swift */; };
 		82484E7A847E35C223FE78A4 /* Pods_BeautyBell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9D19D486F90FF25EB49660 /* Pods_BeautyBell.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +87,9 @@
 		4BF09B9F268393FC00DC8F07 /* ArtisanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisanViewModel.swift; sourceTree = "<group>"; };
 		4BF09BA126842B5500DC8F07 /* ServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
 		4BF9785026959B1500D6873A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		4BF97852269835B700D6873A /* DetailArtisanHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArtisanHeader.swift; sourceTree = "<group>"; };
+		4BF97854269835D800D6873A /* DetailArtisanHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailArtisanHeader.xib; sourceTree = "<group>"; };
+		4BF97856269881FE00D6873A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5A4C9486C4F3483703237278 /* Pods_BeautyBell_BeautyBellUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyBell_BeautyBellUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9D19D486F90FF25EB49660 /* Pods_BeautyBell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyBell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		609E49BFA04D5F2C41B31576 /* Pods-BeautyBell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyBell.debug.xcconfig"; path = "Target Support Files/Pods-BeautyBell/Pods-BeautyBell.debug.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +207,7 @@
 				4BF09B842680945B00DC8F07 /* HomeViewController.swift */,
 				4BF09B862680948100DC8F07 /* ProfileViewController.swift */,
 				4BF09B9626810F6300DC8F07 /* DetailArtisanViewController.swift */,
+				4BF97856269881FE00D6873A /* TabBarViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -212,6 +219,8 @@
 				4BF09B8A2680954F00DC8F07 /* ArtisanTableViewCell.xib */,
 				4BF09B8D2680958100DC8F07 /* DetailArtisanCollectionViewCell.swift */,
 				4BF09B8E2680958100DC8F07 /* DetailArtisanCollectionViewCell.xib */,
+				4BF97852269835B700D6873A /* DetailArtisanHeader.swift */,
+				4BF97854269835D800D6873A /* DetailArtisanHeader.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +370,7 @@
 				4BF09B902680958100DC8F07 /* DetailArtisanCollectionViewCell.xib in Resources */,
 				4BF09B5C26807A6600DC8F07 /* LaunchScreen.storyboard in Resources */,
 				4BF09B5926807A6600DC8F07 /* Assets.xcassets in Resources */,
+				4BF97855269835D800D6873A /* DetailArtisanHeader.xib in Resources */,
 				4BF09B8C2680954F00DC8F07 /* ArtisanTableViewCell.xib in Resources */,
 				4BF09B5726807A6400DC8F07 /* Main.storyboard in Resources */,
 				4BF09B99268179AA00DC8F07 /* GoogleService-Info.plist in Resources */,
@@ -525,9 +535,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BF97853269835B700D6873A /* DetailArtisanHeader.swift in Sources */,
 				4BF09B8026807A7C00DC8F07 /* Users.swift in Sources */,
 				4BF09B9E2681DBDC00DC8F07 /* Service.swift in Sources */,
 				4BF09B5426807A6400DC8F07 /* ViewController.swift in Sources */,
+				4BF97857269881FE00D6873A /* TabBarViewController.swift in Sources */,
 				4BF09B8B2680954F00DC8F07 /* ArtisanTableViewCell.swift in Sources */,
 				4BF09BA226842B5500DC8F07 /* ServiceViewModel.swift in Sources */,
 				4BF09B8226807A9200DC8F07 /* Artisan.swift in Sources */,

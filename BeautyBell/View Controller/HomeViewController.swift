@@ -14,6 +14,12 @@ class HomeViewController: UIViewController {
         tableVIew.register(UINib(nibName: "ArtisanTableViewCell", bundle: nil), forCellReuseIdentifier: "ArtisanTableViewCell")
         return tableVIew
     }()
+    lazy var artisanLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "List Artisan"
+        lbl.font = UIFont.boldSystemFont(ofSize: 30)
+        return lbl
+    }()
     var Artisans = [ArtisanViewModel]()
     var searchResult = [ArtisanViewModel]()
     let service = APIServices()
@@ -23,20 +29,24 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Home"
-        self.parent?.navigationItem.setHidesBackButton(true, animated: true)
+        self.tabBarItem.image = UIImage(systemName: "house")
+        self.navigationItem.largeTitleDisplayMode = .always
         searchController.searchResultsUpdater = self
-        self.definesPresentationContext = true
-        self.parent?.navigationItem.searchController = searchController
-        searchController.hidesNavigationBarDuringPresentation = false
         view.backgroundColor = .white
         setupTableView()
-        
-        // Do any additional setup after loading the view.
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         layoutTableView()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.parent?.navigationItem.setHidesBackButton(true, animated: true)
+        self.definesPresentationContext = true
+        self.parent?.navigationItem.searchController = searchController
+        searchController.hidesNavigationBarDuringPresentation = false
+        self.title = "Home"
+        self.parent?.title = self.title
     }
 }
 
@@ -44,6 +54,7 @@ extension HomeViewController{
     func setupTableView(){
         tableView.delegate = self
         tableView.dataSource = self
+        view.addSubview(artisanLabel)
         view.addSubview(tableView)
         service.getAllArtisan()
         service.completionHandlerArtisan { [weak self] artisans, status, message in
@@ -59,8 +70,14 @@ extension HomeViewController{
     }
     
     func layoutTableView(){
+        artisanLabel.translatesAutoresizingMaskIntoConstraints = false
+        artisanLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
+        artisanLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        artisanLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
+        artisanLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        tableView.topAnchor.constraint(equalTo: artisanLabel.bottomAnchor, constant: 16).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

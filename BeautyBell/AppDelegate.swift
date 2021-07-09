@@ -65,13 +65,12 @@ extension  AppDelegate: GIDSignInDelegate {
         print("Did sign in with Google: \(user)")
 
         guard let email = user.profile.email,
-            let firstName = user.profile.givenName,
-            let lastName = user.profile.familyName else {
+              let name = user.profile.name else {
                 return
         }
 
         UserDefaults.standard.set(email, forKey: "email")
-        UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
+        UserDefaults.standard.set("\(name)", forKey: "name")
 
         guard let authentication = user.authentication else {
             print("Missing auth object off of google user")

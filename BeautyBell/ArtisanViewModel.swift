@@ -13,12 +13,14 @@ struct ArtisanViewModel{
     let artisanDescString: String
     let artisanPhotoURL: String
     let artisanID: String
+    let artisanRating: String
     
     init(Artisan: Artisan) {
         self.artisanName = Artisan.name
         self.artisanDescString = Artisan.description
         self.artisanPhotoURL = Artisan.avatar
         self.artisanID = Artisan.id
+        self.artisanRating = Artisan.rating
         
     }
     
@@ -31,4 +33,17 @@ struct ArtisanViewModel{
                 completion(image)
             }.resume()
         }
+    func loadRating()->[Bool]{
+        var ratingStars = [Bool]()
+        let rating = Int(artisanRating) ?? 0
+        for i in 0..<5{
+            if i<=rating-1{
+                ratingStars.append(true)
+            }else{
+                ratingStars.append(false)
+            }
+        }
+        return ratingStars
+        
+    }
 }

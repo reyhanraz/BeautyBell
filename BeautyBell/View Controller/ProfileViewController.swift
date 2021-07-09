@@ -33,8 +33,6 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Profile"
-        self.parent?.navigationItem.setHidesBackButton(true, animated: true)
         view.backgroundColor = .white
         initUI()
         // Do any additional setup after loading the view.
@@ -42,6 +40,14 @@ class ProfileViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         layoutUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.parent?.navigationItem.setHidesBackButton(true, animated: true)
+        self.parent?.navigationItem.searchController = nil
+        self.title = "Profile"
+        self.parent?.title = self.title
     }
 }
 
