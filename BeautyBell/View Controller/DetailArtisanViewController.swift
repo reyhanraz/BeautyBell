@@ -83,7 +83,7 @@ extension DetailArtisanViewController{
         artisanHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         artisanHeader.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
         artisanHeader.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        artisanHeader.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        artisanHeader.heightAnchor.constraint(greaterThanOrEqualToConstant: 200).isActive = true
         
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false

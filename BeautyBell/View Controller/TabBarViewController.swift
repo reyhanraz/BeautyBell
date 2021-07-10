@@ -26,7 +26,8 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         
         
         // Create Tab two
-        let tabTwo = ProfileViewController()
+        let tabTwo = UserViewController()
+        tabTwo.userViewModel = UserViewModel(user: users(name: "John Doe", imageURL: "", dateOfBirth: "", email: "John@gmail.com"))
         let tabTwoBarItem2 = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), selectedImage: UIImage(systemName: "person.circle.fill"))
         
         tabTwo.tabBarItem = tabTwoBarItem2

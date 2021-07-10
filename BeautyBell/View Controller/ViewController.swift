@@ -12,6 +12,7 @@ import GoogleSignIn
 
 
 class ViewController: UIViewController {
+
   
     lazy var textFieldUserName: UITextField = {
         let txtField = UITextField()
@@ -140,14 +141,10 @@ extension ViewController{
         buttonGoogle.translatesAutoresizingMaskIntoConstraints = false
         buttonGoogle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         buttonGoogle.topAnchor.constraint(equalTo: lblSocmed.bottomAnchor, constant: 20).isActive = true
-        buttonGoogle.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        buttonGoogle.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         buttonFacebook.translatesAutoresizingMaskIntoConstraints = false
         buttonFacebook.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         buttonFacebook.topAnchor.constraint(equalTo: buttonGoogle.bottomAnchor, constant: 20).isActive = true
-        buttonFacebook.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        buttonFacebook.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     @objc func buttonTapped(){

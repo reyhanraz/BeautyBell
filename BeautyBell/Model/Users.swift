@@ -9,6 +9,8 @@ import Foundation
 
 struct users {
     var name: String
-    var image: String
+    var imageURL: String
+    var dateOfBirth: String
+    var email: String
     
 }

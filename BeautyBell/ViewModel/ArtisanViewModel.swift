@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import AlamofireImage
 struct ArtisanViewModel{
+    
     let artisanName: String
     let artisanDescString: String
     let artisanPhotoURL: String
