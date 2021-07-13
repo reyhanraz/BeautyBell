@@ -10,6 +10,7 @@
 		120AD44237273FDA7C766FD1 /* Pods_BeautyBellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D46C29459228CE298DB003 /* Pods_BeautyBellTests.framework */; };
 		317F8C86C4EFA4F977B6616F /* Pods_BeautyBell_BeautyBellUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4C9486C4F3483703237278 /* Pods_BeautyBell_BeautyBellUITests.framework */; };
 		4BE407C82699ACB4009BC6FF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE407C72699ACB4009BC6FF /* UserViewController.swift */; };
+		4BE407CB269B04E3009BC6FF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE407CA269B04E3009BC6FF /* RegisterViewController.swift */; };
 		4BF09B5026807A6400DC8F07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B4F26807A6400DC8F07 /* AppDelegate.swift */; };
 		4BF09B5226807A6400DC8F07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B5126807A6400DC8F07 /* SceneDelegate.swift */; };
 		4BF09B5426807A6400DC8F07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B5326807A6400DC8F07 /* ViewController.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		4BE407C72699ACB4009BC6FF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		4BE407CA269B04E3009BC6FF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4BF09B4C26807A6400DC8F07 /* BeautyBell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautyBell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF09B4F26807A6400DC8F07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BF09B5126807A6400DC8F07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				4BF09B9626810F6300DC8F07 /* DetailArtisanViewController.swift */,
 				4BF97856269881FE00D6873A /* TabBarViewController.swift */,
 				4BE407C72699ACB4009BC6FF /* UserViewController.swift */,
+				4BE407CA269B04E3009BC6FF /* RegisterViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				4BF09B8B2680954F00DC8F07 /* ArtisanTableViewCell.swift in Sources */,
 				4BF09BA226842B5500DC8F07 /* ServiceViewModel.swift in Sources */,
 				4BF09B8226807A9200DC8F07 /* Artisan.swift in Sources */,
+				4BE407CB269B04E3009BC6FF /* RegisterViewController.swift in Sources */,
 				4BF09B9726810F6300DC8F07 /* DetailArtisanViewController.swift in Sources */,
 				4BF9785126959B1500D6873A /* Extension.swift in Sources */,
 				4BF09B5026807A6400DC8F07 /* AppDelegate.swift in Sources */,

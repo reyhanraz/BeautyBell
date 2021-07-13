@@ -64,14 +64,16 @@ extension  AppDelegate: GIDSignInDelegate {
 
         print("Did sign in with Google: \(user)")
 
-        guard let email = user.profile.email,
-              let name = user.profile.name else {
-                return
+        let email = user.profile.email
+        let name = user.profile.name
+        var imageURL = URL(string: "")
+        
+        if user.profile.hasImage{
+            imageURL = user.profile.imageURL(withDimension: 150)
         }
-
-        UserDefaults.standard.set(email, forKey: "email")
-        UserDefaults.standard.set("\(name)", forKey: "name")
-
+        let users = Users(name: name ?? "", imageURL: imageURL?.path ?? "", dateOfBirth: "", email: email ?? "")
+        UserProfileCache.save(users)
+        
         guard let authentication = user.authentication else {
             print("Missing auth object off of google user")
             return

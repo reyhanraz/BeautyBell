@@ -15,7 +15,7 @@ struct UserViewModel{
     var userImageURL: String
     var userEmail: String
     
-    init(user: users) {
+    init(user: Users) {
         self.userName = user.name
         self.userDOB = user.dateOfBirth
         self.userEmail = user.email

@@ -14,7 +14,7 @@ class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        initui(userViewModel: userViewModel ?? UserViewModel(user: users(name: "", imageURL: "", dateOfBirth: "", email: "")))
+        initui(userViewModel: userViewModel ?? UserViewModel(user: Users(name: "", imageURL: "", dateOfBirth: "", email: "")))
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
