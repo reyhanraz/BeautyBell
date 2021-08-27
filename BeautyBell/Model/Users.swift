@@ -24,7 +24,7 @@ struct UserProfileCache {
             userData = try? PropertyListDecoder().decode(Users.self, from: data)
             return userData!
         } else {
-            return userData
+            return Users(name: "", imageURL: "", dateOfBirth: "", email: "")
         }
     }
     static func remove() {

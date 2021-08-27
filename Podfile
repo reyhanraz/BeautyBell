@@ -8,6 +8,11 @@ target 'BeautyBell' do
   # Pods for BeautyBell
 pod 'Alamofire', '~> 5.4'
 pod 'AlamofireImage', '~> 4.1'
+pod 'L10n-swift', '~> 5.9'
+pod 'GRDB.swift'
+pod 'RxSwift', '6.2.0'
+pod 'RxCocoa', '6.2.0'
+pod 'Moya', '~> 14.0'
 
 pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
