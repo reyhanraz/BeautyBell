@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GRDB
 
 struct Artisan: Codable {
     let id, createdAt, name: String
@@ -20,5 +21,16 @@ struct Artisan: Codable {
         case rating
         case description = "description"
         case services
+    }
+    
+    public enum ColumnName: String, ColumnExpression{
+        case id
+        case createdAt
+        case name
+        case avatar
+        case image
+        case userImage
+        case rating
+        case description
     }
 }

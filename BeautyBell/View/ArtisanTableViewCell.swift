@@ -30,6 +30,10 @@ class ArtisanTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        labelArtisanName.isSkeletonable = true
+        labelDescription.isSkeletonable = true
+        imageArtisan.isSkeletonable = true
+        isSkeletonable = true
         // Initialization code
     }
 

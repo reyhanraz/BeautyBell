@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		120AD44237273FDA7C766FD1 /* Pods_BeautyBellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D46C29459228CE298DB003 /* Pods_BeautyBellTests.framework */; };
 		317F8C86C4EFA4F977B6616F /* Pods_BeautyBell_BeautyBellUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4C9486C4F3483703237278 /* Pods_BeautyBell_BeautyBellUITests.framework */; };
+		4B9151D526D8D812002117A5 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9151D426D8D812002117A5 /* ListViewModel.swift */; };
+		4B9151EC26DB7007002117A5 /* Localization.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B9151EE26DB7007002117A5 /* Localization.plist */; };
+		4B9151F126DB703A002117A5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B9151F326DB703A002117A5 /* Localizable.strings */; };
+		4B9151F726DBE138002117A5 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9151F626DBE138002117A5 /* AppDatabase.swift */; };
+		4B9151F926DBE2CA002117A5 /* ArtisanSQLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9151F826DBE2CA002117A5 /* ArtisanSQLCache.swift */; };
 		4BE407C82699ACB4009BC6FF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE407C72699ACB4009BC6FF /* UserViewController.swift */; };
 		4BE407CB269B04E3009BC6FF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE407CA269B04E3009BC6FF /* RegisterViewController.swift */; };
 		4BF09B5026807A6400DC8F07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B4F26807A6400DC8F07 /* AppDelegate.swift */; };
@@ -61,6 +66,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B9151D426D8D812002117A5 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		4B9151ED26DB7007002117A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Localization.plist; sourceTree = "<group>"; };
+		4B9151F226DB703A002117A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4B9151F526DB70E1002117A5 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4B9151F626DBE138002117A5 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		4B9151F826DBE2CA002117A5 /* ArtisanSQLCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisanSQLCache.swift; sourceTree = "<group>"; };
 		4BE407C72699ACB4009BC6FF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		4BE407CA269B04E3009BC6FF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4BF09B4C26807A6400DC8F07 /* BeautyBell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautyBell.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,12 +148,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B9151E926DB6FA3002117A5 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				4B9151EE26DB7007002117A5 /* Localization.plist */,
+				4B9151F326DB703A002117A5 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		4BE407C92699BC07009BC6FF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				4BF09B9F268393FC00DC8F07 /* ArtisanViewModel.swift */,
 				4BF9785C2698A7A700D6873A /* UserViewModel.swift */,
 				4BF09BA126842B5500DC8F07 /* ServiceViewModel.swift */,
+				4B9151D426D8D812002117A5 /* ListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -172,6 +193,7 @@
 		4BF09B4E26807A6400DC8F07 /* BeautyBell */ = {
 			isa = PBXGroup;
 			children = (
+				4B9151E926DB6FA3002117A5 /* Localization */,
 				4BF09B98268179AA00DC8F07 /* GoogleService-Info.plist */,
 				4BF09B4F26807A6400DC8F07 /* AppDelegate.swift */,
 				4BF09B5126807A6400DC8F07 /* SceneDelegate.swift */,
@@ -185,6 +207,7 @@
 				4BF09B9C2681DBB500DC8F07 /* APIService */,
 				4BE407C92699BC07009BC6FF /* ViewModel */,
 				4BF9785026959B1500D6873A /* Extension.swift */,
+				4B9151F626DBE138002117A5 /* AppDatabase.swift */,
 			);
 			path = BeautyBell;
 			sourceTree = "<group>";
@@ -213,6 +236,7 @@
 				4BF09B7F26807A7C00DC8F07 /* Users.swift */,
 				4BF09B8126807A9200DC8F07 /* Artisan.swift */,
 				4BF09B9D2681DBDC00DC8F07 /* Service.swift */,
+				4B9151F826DBE2CA002117A5 /* ArtisanSQLCache.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,6 +393,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = 4BF09B4326807A6400DC8F07;
 			productRefGroup = 4BF09B4D26807A6400DC8F07 /* Products */;
@@ -392,8 +417,10 @@
 				4BF09B5926807A6600DC8F07 /* Assets.xcassets in Resources */,
 				4BF97855269835D800D6873A /* DetailArtisanHeader.xib in Resources */,
 				4BF978632698FC3900D6873A /* ProfileView.xib in Resources */,
+				4B9151F126DB703A002117A5 /* Localizable.strings in Resources */,
 				4BF09B8C2680954F00DC8F07 /* ArtisanTableViewCell.xib in Resources */,
 				4BF09B5726807A6400DC8F07 /* Main.storyboard in Resources */,
+				4B9151EC26DB7007002117A5 /* Localization.plist in Resources */,
 				4BF09B99268179AA00DC8F07 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,13 +589,16 @@
 				4BF09B9E2681DBDC00DC8F07 /* Service.swift in Sources */,
 				4BF09B5426807A6400DC8F07 /* ViewController.swift in Sources */,
 				4BF97857269881FE00D6873A /* TabBarViewController.swift in Sources */,
+				4B9151F926DBE2CA002117A5 /* ArtisanSQLCache.swift in Sources */,
 				4BF09B8B2680954F00DC8F07 /* ArtisanTableViewCell.swift in Sources */,
 				4BF09BA226842B5500DC8F07 /* ServiceViewModel.swift in Sources */,
 				4BF09B8226807A9200DC8F07 /* Artisan.swift in Sources */,
 				4BE407CB269B04E3009BC6FF /* RegisterViewController.swift in Sources */,
+				4B9151D526D8D812002117A5 /* ListViewModel.swift in Sources */,
 				4BF09B9726810F6300DC8F07 /* DetailArtisanViewController.swift in Sources */,
 				4BF9785126959B1500D6873A /* Extension.swift in Sources */,
 				4BF09B5026807A6400DC8F07 /* AppDelegate.swift in Sources */,
+				4B9151F726DBE138002117A5 /* AppDatabase.swift in Sources */,
 				4BF09B9B2681982100DC8F07 /* FirebaseAuth.swift in Sources */,
 				4BF978612698FC0400D6873A /* ProfileView.swift in Sources */,
 				4BF09B8F2680958100DC8F07 /* DetailArtisanCollectionViewCell.swift in Sources */,
@@ -612,6 +642,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4B9151EE26DB7007002117A5 /* Localization.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B9151ED26DB7007002117A5 /* Base */,
+			);
+			name = Localization.plist;
+			sourceTree = "<group>";
+		};
+		4B9151F326DB703A002117A5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B9151F226DB703A002117A5 /* en */,
+				4B9151F526DB70E1002117A5 /* id */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		4BF09B5526807A6400DC8F07 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -635,6 +682,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -696,6 +744,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

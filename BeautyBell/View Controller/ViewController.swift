@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
 import GoogleSignIn
+import L10n_swift
 
 
 class ViewController: UIViewController {
@@ -37,7 +38,7 @@ class ViewController: UIViewController {
     }()
     lazy var buttonLogIN: UIButton = {
         let btn = UIButton()
-        btn.setTitle("Log In", for: .normal)
+        btn.setTitle("Login".l10n(), for: .normal)
         btn.setTitleColor(UIColor.systemPink, for: .normal)
         btn.clipsToBounds = true
         btn.layer.cornerRadius = 20

@@ -7,7 +7,25 @@
 		<key>BeautyBell.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>27</integer>
+			<integer>33</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>4BF09B4B26807A6400DC8F07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4BF09B6126807A6700DC8F07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4BF09B6C26807A6700DC8F07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
