@@ -9,6 +9,10 @@ import Moya
 import RxSwift
 import RxCocoa
 
+protocol serviceType{
+    func get()
+}
+
 struct ListViewModel{
     private let _array = BehaviorRelay<[ArtisanViewModel]>(value: [])
     var _output : Driver<[ArtisanViewModel]>{
@@ -18,7 +22,16 @@ struct ListViewModel{
     var _outputService : Driver<[ServiceViewModel]>{
         return _arrayService.asDriver()
     }
-    let _service = MoyaProvider<APIServices>()
+    let _service = MoyaProvider<ArtisanAPI>()
+    
+    let cacheService: serviceType
+    let apiService: serviceType
+    let loadFromCache: Bool
+    init(cacheService: serviceType, apiService: serviceType, loadFromCache: Bool = false) {
+        self.cacheService = cacheService
+        self.apiService = apiService
+        self.loadFromCache = loadFromCache
+    }
     
     func getListArtisan() -> Driver<[ArtisanViewModel]>{
         _service.request(.getAll) { result in
@@ -46,7 +59,9 @@ struct ListViewModel{
                 do{
                     let data = response.data
                     let artisans = try JSONDecoder().decode(Artisan.self, from: data)
-                    _arrayService.accept(artisans.services.map({ServiceViewModel(service: $0)}))
+                    if let service = artisans.services{
+                        _arrayService.accept(service.map({ServiceViewModel(service: $0)}))
+                    }
                 }catch let error{
                     print(error.localizedDescription)
                 }

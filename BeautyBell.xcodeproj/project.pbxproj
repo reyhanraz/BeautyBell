@@ -31,7 +31,7 @@
 		4BF09B8C2680954F00DC8F07 /* ArtisanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF09B8A2680954F00DC8F07 /* ArtisanTableViewCell.xib */; };
 		4BF09B8F2680958100DC8F07 /* DetailArtisanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B8D2680958100DC8F07 /* DetailArtisanCollectionViewCell.swift */; };
 		4BF09B902680958100DC8F07 /* DetailArtisanCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF09B8E2680958100DC8F07 /* DetailArtisanCollectionViewCell.xib */; };
-		4BF09B932680CE8D00DC8F07 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B922680CE8D00DC8F07 /* APIService.swift */; };
+		4BF09B932680CE8D00DC8F07 /* ArtisanAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B922680CE8D00DC8F07 /* ArtisanAPI.swift */; };
 		4BF09B9726810F6300DC8F07 /* DetailArtisanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B9626810F6300DC8F07 /* DetailArtisanViewController.swift */; };
 		4BF09B99268179AA00DC8F07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BF09B98268179AA00DC8F07 /* GoogleService-Info.plist */; };
 		4BF09B9B2681982100DC8F07 /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B9A2681982100DC8F07 /* FirebaseAuth.swift */; };
@@ -95,7 +95,7 @@
 		4BF09B8A2680954F00DC8F07 /* ArtisanTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtisanTableViewCell.xib; sourceTree = "<group>"; };
 		4BF09B8D2680958100DC8F07 /* DetailArtisanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArtisanCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BF09B8E2680958100DC8F07 /* DetailArtisanCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailArtisanCollectionViewCell.xib; sourceTree = "<group>"; };
-		4BF09B922680CE8D00DC8F07 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		4BF09B922680CE8D00DC8F07 /* ArtisanAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisanAPI.swift; sourceTree = "<group>"; };
 		4BF09B9626810F6300DC8F07 /* DetailArtisanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArtisanViewController.swift; sourceTree = "<group>"; };
 		4BF09B98268179AA00DC8F07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4BF09B9A2681982100DC8F07 /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
@@ -163,7 +163,6 @@
 				4BF09B9F268393FC00DC8F07 /* ArtisanViewModel.swift */,
 				4BF9785C2698A7A700D6873A /* UserViewModel.swift */,
 				4BF09BA126842B5500DC8F07 /* ServiceViewModel.swift */,
-				4B9151D426D8D812002117A5 /* ListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -236,7 +235,6 @@
 				4BF09B7F26807A7C00DC8F07 /* Users.swift */,
 				4BF09B8126807A9200DC8F07 /* Artisan.swift */,
 				4BF09B9D2681DBDC00DC8F07 /* Service.swift */,
-				4B9151F826DBE2CA002117A5 /* ArtisanSQLCache.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,7 +270,9 @@
 		4BF09B9C2681DBB500DC8F07 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				4BF09B922680CE8D00DC8F07 /* APIService.swift */,
+				4B9151D426D8D812002117A5 /* ListViewModel.swift */,
+				4BF09B922680CE8D00DC8F07 /* ArtisanAPI.swift */,
+				4B9151F826DBE2CA002117A5 /* ArtisanSQLCache.swift */,
 				4BF09B9A2681982100DC8F07 /* FirebaseAuth.swift */,
 			);
 			path = APIService;
@@ -604,7 +604,7 @@
 				4BF09B8F2680958100DC8F07 /* DetailArtisanCollectionViewCell.swift in Sources */,
 				4BF9785D2698A7A700D6873A /* UserViewModel.swift in Sources */,
 				4BF09BA0268393FC00DC8F07 /* ArtisanViewModel.swift in Sources */,
-				4BF09B932680CE8D00DC8F07 /* APIService.swift in Sources */,
+				4BF09B932680CE8D00DC8F07 /* ArtisanAPI.swift in Sources */,
 				4BF09B5226807A6400DC8F07 /* SceneDelegate.swift in Sources */,
 				4BF09B852680945B00DC8F07 /* HomeViewController.swift in Sources */,
 			);

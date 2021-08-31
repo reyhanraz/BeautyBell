@@ -10,15 +10,25 @@ import FBSDKCoreKit
 import Firebase
 import FirebaseAuth
 import GoogleSignIn
+import GRDB
+
+public protocol AppDelegateType {
+    var dbQueue: DatabaseQueue! { get }
+}
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, AppDelegateType {
+    
+    var dbQueue: DatabaseQueue!
+
     
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-          
+        
+        try! setupDatabase(application)
+
         FirebaseApp.configure()
         
         ApplicationDelegate.shared.application(
@@ -44,6 +54,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
             annotation: options[UIApplication.OpenURLOptionsKey.annotation]
         )
+
+    }
+    
+    private func setupDatabase(_ application: UIApplication) throws {
+        let databaseURL = try FileManager.default
+            .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            .appendingPathComponent("beautybell")
+        
+        dbQueue = try AppDatabase.openDatabase(atPath: databaseURL.path)
+        try AppDatabase.checkColumn(queue: dbQueue, tableName: TableNames.Artisan.artisan)
+        try AppDatabase.checkColumn(queue: dbQueue, tableName: TableNames.Artisan.service)
+        try dbQueue.read{ db in
+            let row = try Artisan.fetchAll(db)
+            print(row)
+        }
 
     }
 
