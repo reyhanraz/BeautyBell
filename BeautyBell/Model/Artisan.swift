@@ -69,7 +69,7 @@ public class Artisan: Codable, FetchableRecord, PersistableRecord {
             let sql = """
                 INSERT INTO \(TableNames.Artisan.service)
                 (
-                \(Service.ColumnName.artisanID)
+                \(Service.ColumnName.artisanID),
                 \(Service.ColumnName.name),
                 \(Service.ColumnName.price),
                 \(Service.ColumnName.caption)

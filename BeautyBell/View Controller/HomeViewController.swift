@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
     }()
     var searchResult = [ArtisanViewModel]()
     let searchController = UISearchController(searchResultsController: nil)
-    let _listViewModel = ListViewModel()
+    var _listViewModel: ListViewModel?
     let disposeBag = DisposeBag()
 
 
@@ -36,10 +36,10 @@ class HomeViewController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .always
 //        searchController.searchResultsUpdater = self
         view.backgroundColor = .white
+        getData()
         setupTableView()
         binding()
         view.showSkeleton()
-
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -54,25 +54,20 @@ class HomeViewController: UIViewController {
         self.title = "Home"
         self.parent?.title = self.title
     }
+    
+    func getData(){
+        let delegate = UIApplication.shared.delegate as! AppDelegateType
+        let cache = ArtisanSQLCache(dbQueue: delegate.dbQueue, tableName: TableNames.Artisan.artisan)
+        let cacheService = ArtisanCacheService(cache: cache)
+        let api = ArtisanCloudService()
+        _listViewModel = ListViewModel(cacheService: cacheService, apiService: api, loadFromCache: true)
+    }
 }
 
 extension HomeViewController{
     func setupTableView(){
-//        tableView.delegate = self
-//        tableView.dataSource = self
         view.addSubview(artisanLabel)
         view.addSubview(tableView)
-//        service.getAllArtisan()
-//        service.completionHandlerArtisan { [weak self] artisans, status, message in
-//            if status{
-//                guard let self = self else {return}
-//                guard let _artisans = artisans else {
-//                    return
-//                }
-//                self.Artisans = _artisans.map({ArtisanViewModel(Artisan: $0)})
-//                self.tableView.reloadData()
-//            }
-//        }
     }
     
     func layoutTableView(){
@@ -90,7 +85,7 @@ extension HomeViewController{
     }
     
     func binding(){
-        _listViewModel.getListArtisan()
+        _listViewModel?.getAll()
             .asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: "ArtisanTableViewCell", cellType: ArtisanTableViewCell.self))
                 {row, model, cell in

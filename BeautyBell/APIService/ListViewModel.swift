@@ -10,7 +10,8 @@ import RxSwift
 import RxCocoa
 
 protocol serviceType{
-    func get()
+    func getAll() throws -> Observable<[Artisan]>
+    func getServiceByArtisanID(id: String) throws -> Observable<[Service]>
 }
 
 struct ListViewModel{
@@ -22,7 +23,6 @@ struct ListViewModel{
     var _outputService : Driver<[ServiceViewModel]>{
         return _arrayService.asDriver()
     }
-    let _service = MoyaProvider<ArtisanAPI>()
     
     let cacheService: serviceType
     let apiService: serviceType
@@ -33,43 +33,48 @@ struct ListViewModel{
         self.loadFromCache = loadFromCache
     }
     
-    func getListArtisan() -> Driver<[ArtisanViewModel]>{
-        _service.request(.getAll) { result in
-            switch result{
-            case .success(let response):
-                do{
-                    let data = response.data
-                    let artisans = try JSONDecoder().decode([Artisan].self, from: data)
-                    _array.accept(artisans.map({ArtisanViewModel(Artisan: $0)}))
-                }catch{
-                    
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+    func getAll() -> Driver<[ArtisanViewModel]>{
+        var _service: serviceType
+        if !loadFromCache{
+            _service = apiService
+            print("From Service")
+        }else{
+            _service = cacheService
+            print("From Cache")
         }
         
+        do {
+            let artisan = try _service.getAll()
+            
+            return artisan.map{
+                $0.map{
+                    ArtisanViewModel(Artisan: $0)
+                }
+            }.asDriver(onErrorDriveWith: .empty())
+        } catch let error {
+            print(error.localizedDescription)
+        }
         return _output
     }
     
-    func getArtisanByID(id: Int) -> Driver<[ServiceViewModel]>{
-        _service.request(.getDetail(id: id)) { result in
-            switch result{
-            case .success(let response):
-                do{
-                    let data = response.data
-                    let artisans = try JSONDecoder().decode(Artisan.self, from: data)
-                    if let service = artisans.services{
-                        _arrayService.accept(service.map({ServiceViewModel(service: $0)}))
-                    }
-                }catch let error{
-                    print(error.localizedDescription)
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+    func getServicebyArtisanID(id: String) -> Driver<[ServiceViewModel]>{
+        var _service: serviceType
+        if !loadFromCache{
+            _service = apiService
+        }else{
+            _service = cacheService
         }
-        
+        do {
+            let service = try _service.getServiceByArtisanID(id: id)
+            print(service)
+            return service.map({
+                $0.map{
+                    ServiceViewModel(service: $0)
+                }
+            }).asDriver(onErrorDriveWith: .empty())
+        } catch let error {
+            print(error.localizedDescription)
+        }
         return _outputService
     }
 }

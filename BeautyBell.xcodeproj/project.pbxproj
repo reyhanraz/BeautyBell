@@ -45,6 +45,8 @@
 		4BF9785D2698A7A700D6873A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9785C2698A7A700D6873A /* UserViewModel.swift */; };
 		4BF978612698FC0400D6873A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF978602698FC0400D6873A /* ProfileView.swift */; };
 		4BF978632698FC3900D6873A /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF978622698FC3900D6873A /* ProfileView.xib */; };
+		68265E5E26DF25A6003A9AA6 /* ArtisanCloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E5D26DF25A6003A9AA6 /* ArtisanCloudService.swift */; };
+		68265E6026DF4216003A9AA6 /* ArtisanCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E5F26DF4216003A9AA6 /* ArtisanCacheService.swift */; };
 		82484E7A847E35C223FE78A4 /* Pods_BeautyBell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9D19D486F90FF25EB49660 /* Pods_BeautyBell.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +114,8 @@
 		5A4C9486C4F3483703237278 /* Pods_BeautyBell_BeautyBellUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyBell_BeautyBellUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9D19D486F90FF25EB49660 /* Pods_BeautyBell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyBell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		609E49BFA04D5F2C41B31576 /* Pods-BeautyBell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyBell.debug.xcconfig"; path = "Target Support Files/Pods-BeautyBell/Pods-BeautyBell.debug.xcconfig"; sourceTree = "<group>"; };
+		68265E5D26DF25A6003A9AA6 /* ArtisanCloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisanCloudService.swift; sourceTree = "<group>"; };
+		68265E5F26DF4216003A9AA6 /* ArtisanCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisanCacheService.swift; sourceTree = "<group>"; };
 		6E5E12C606E0009528E23AA1 /* Pods-BeautyBellTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyBellTests.debug.xcconfig"; path = "Target Support Files/Pods-BeautyBellTests/Pods-BeautyBellTests.debug.xcconfig"; sourceTree = "<group>"; };
 		74D46C29459228CE298DB003 /* Pods_BeautyBellTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyBellTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8229034B27EE47DCB60BF540 /* Pods-BeautyBellTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyBellTests.release.xcconfig"; path = "Target Support Files/Pods-BeautyBellTests/Pods-BeautyBellTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 				4BF09B922680CE8D00DC8F07 /* ArtisanAPI.swift */,
 				4B9151F826DBE2CA002117A5 /* ArtisanSQLCache.swift */,
 				4BF09B9A2681982100DC8F07 /* FirebaseAuth.swift */,
+				68265E5D26DF25A6003A9AA6 /* ArtisanCloudService.swift */,
+				68265E5F26DF4216003A9AA6 /* ArtisanCacheService.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -590,11 +596,13 @@
 				4BF09B5426807A6400DC8F07 /* ViewController.swift in Sources */,
 				4BF97857269881FE00D6873A /* TabBarViewController.swift in Sources */,
 				4B9151F926DBE2CA002117A5 /* ArtisanSQLCache.swift in Sources */,
+				68265E6026DF4216003A9AA6 /* ArtisanCacheService.swift in Sources */,
 				4BF09B8B2680954F00DC8F07 /* ArtisanTableViewCell.swift in Sources */,
 				4BF09BA226842B5500DC8F07 /* ServiceViewModel.swift in Sources */,
 				4BF09B8226807A9200DC8F07 /* Artisan.swift in Sources */,
 				4BE407CB269B04E3009BC6FF /* RegisterViewController.swift in Sources */,
 				4B9151D526D8D812002117A5 /* ListViewModel.swift in Sources */,
+				68265E5E26DF25A6003A9AA6 /* ArtisanCloudService.swift in Sources */,
 				4BF09B9726810F6300DC8F07 /* DetailArtisanViewController.swift in Sources */,
 				4BF9785126959B1500D6873A /* Extension.swift in Sources */,
 				4BF09B5026807A6400DC8F07 /* AppDelegate.swift in Sources */,

@@ -11,7 +11,7 @@ import Moya
 
 enum ArtisanAPI {
     case getAll
-    case getDetail(id: Int)
+    case getDetail(id: String)
 }
 
 extension ArtisanAPI: TargetType{

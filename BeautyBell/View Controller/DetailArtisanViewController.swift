@@ -17,7 +17,7 @@ class DetailArtisanViewController: UIViewController {
         return collView
     }()
     let disposeBag = DisposeBag()
-    let _listViewModel = ListViewModel()
+    var _listViewModel: ListViewModel?
     var artisanViewModel: ArtisanViewModel?
     
     init(artisanViewModel: ArtisanViewModel) {
@@ -33,8 +33,8 @@ class DetailArtisanViewController: UIViewController {
         super.viewDidLoad()
         self.parent?.title = "Detail Artisan"
         view.backgroundColor = .white
+        getData()
         initUI(artiasn: artisanViewModel!)
-        fetchDetailArtisan()
         setupCollectionView()
     }
     
@@ -42,7 +42,14 @@ class DetailArtisanViewController: UIViewController {
         super.viewWillLayoutSubviews()
         layoutCollectionView()
     }
-
+    
+    func getData(){
+        let delegate = UIApplication.shared.delegate as! AppDelegateType
+        let cache = ServiceSQLCache(dbQueue: delegate.dbQueue, tableName: TableNames.Artisan.service)
+        let cacheService = ArtisanServiceCacheService(cache: cache)
+        let api = ArtisanCloudService()
+        _listViewModel = ListViewModel(cacheService: cacheService, apiService: api, loadFromCache: true)
+    }
 }
 
 extension DetailArtisanViewController{
@@ -52,24 +59,8 @@ extension DetailArtisanViewController{
         view.addSubview(artisanHeader)
         binding()
     }
-    private func fetchDetailArtisan(){
-//        let APIservice = APIServices()
-//        APIservice.getAllServises(artisanViewModel!.artisanID)
-//        APIservice.completionHandlerServices { [weak self] services, status, message in
-//            if status{
-//                guard let self = self else {return}
-//                guard let _services = services else {
-//                    return
-//                }
-//                self.services = _services.map({ServiceViewModel(service: $0)})
-//                self.collectionView.reloadData()
-//            }
-//        }
-        
-    }
-    
     func binding(){
-        _listViewModel.getArtisanByID(id: Int(artisanViewModel!.artisanID)!)
+        _listViewModel?.getServicebyArtisanID(id: artisanViewModel!.artisanID)
             .asObservable()
             .bind(to: collectionView.rx.items(cellIdentifier: "DetailArtisanCollectionViewCell", cellType: DetailArtisanCollectionViewCell.self)){row,model,cell in
                 print(model)

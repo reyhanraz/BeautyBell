@@ -63,13 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppDelegateType {
             .appendingPathComponent("beautybell")
         
         dbQueue = try AppDatabase.openDatabase(atPath: databaseURL.path)
-        try AppDatabase.checkColumn(queue: dbQueue, tableName: TableNames.Artisan.artisan)
-        try AppDatabase.checkColumn(queue: dbQueue, tableName: TableNames.Artisan.service)
-        try dbQueue.read{ db in
-            let row = try Artisan.fetchAll(db)
-            print(row)
-        }
-
     }
 
 }
