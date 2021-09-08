@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import L10n_swift
 
 class ProfileView: UIView {
     

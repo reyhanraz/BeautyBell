@@ -45,7 +45,7 @@ struct ListViewModel{
         
         do {
             let artisan = try _service.getAll()
-            
+            print(artisan)
             return artisan.map{
                 $0.map{
                     ArtisanViewModel(Artisan: $0)

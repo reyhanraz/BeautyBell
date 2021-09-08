@@ -47,6 +47,12 @@
 		4BF978632698FC3900D6873A /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF978622698FC3900D6873A /* ProfileView.xib */; };
 		68265E5E26DF25A6003A9AA6 /* ArtisanCloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E5D26DF25A6003A9AA6 /* ArtisanCloudService.swift */; };
 		68265E6026DF4216003A9AA6 /* ArtisanCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E5F26DF4216003A9AA6 /* ArtisanCacheService.swift */; };
+		68265E6226E5E8BC003A9AA6 /* AlamoWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E6126E5E8BB003A9AA6 /* AlamoWrapper.swift */; };
+		68265E6426E5EF8C003A9AA6 /* ArtisanReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E6326E5EF8C003A9AA6 /* ArtisanReview.swift */; };
+		68265E6626E6061B003A9AA6 /* ArtisanServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E6526E6061B003A9AA6 /* ArtisanServiceAPI.swift */; };
+		68265E6826E60C4B003A9AA6 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E6726E60C4B003A9AA6 /* Crypto.swift */; };
+		68265E6A26E60D0B003A9AA6 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E6926E60D0B003A9AA6 /* LoginAPI.swift */; };
+		68265E6C26E721A9003A9AA6 /* RegisterAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E6B26E721A9003A9AA6 /* RegisterAPIModel.swift */; };
 		82484E7A847E35C223FE78A4 /* Pods_BeautyBell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9D19D486F90FF25EB49660 /* Pods_BeautyBell.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +122,12 @@
 		609E49BFA04D5F2C41B31576 /* Pods-BeautyBell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyBell.debug.xcconfig"; path = "Target Support Files/Pods-BeautyBell/Pods-BeautyBell.debug.xcconfig"; sourceTree = "<group>"; };
 		68265E5D26DF25A6003A9AA6 /* ArtisanCloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisanCloudService.swift; sourceTree = "<group>"; };
 		68265E5F26DF4216003A9AA6 /* ArtisanCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisanCacheService.swift; sourceTree = "<group>"; };
+		68265E6126E5E8BB003A9AA6 /* AlamoWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoWrapper.swift; sourceTree = "<group>"; };
+		68265E6326E5EF8C003A9AA6 /* ArtisanReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisanReview.swift; sourceTree = "<group>"; };
+		68265E6526E6061B003A9AA6 /* ArtisanServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisanServiceAPI.swift; sourceTree = "<group>"; };
+		68265E6726E60C4B003A9AA6 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		68265E6926E60D0B003A9AA6 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		68265E6B26E721A9003A9AA6 /* RegisterAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAPIModel.swift; sourceTree = "<group>"; };
 		6E5E12C606E0009528E23AA1 /* Pods-BeautyBellTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyBellTests.debug.xcconfig"; path = "Target Support Files/Pods-BeautyBellTests/Pods-BeautyBellTests.debug.xcconfig"; sourceTree = "<group>"; };
 		74D46C29459228CE298DB003 /* Pods_BeautyBellTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyBellTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8229034B27EE47DCB60BF540 /* Pods-BeautyBellTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyBellTests.release.xcconfig"; path = "Target Support Files/Pods-BeautyBellTests/Pods-BeautyBellTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +223,7 @@
 				4BE407C92699BC07009BC6FF /* ViewModel */,
 				4BF9785026959B1500D6873A /* Extension.swift */,
 				4B9151F626DBE138002117A5 /* AppDatabase.swift */,
+				68265E6726E60C4B003A9AA6 /* Crypto.swift */,
 			);
 			path = BeautyBell;
 			sourceTree = "<group>";
@@ -239,6 +252,7 @@
 				4BF09B7F26807A7C00DC8F07 /* Users.swift */,
 				4BF09B8126807A9200DC8F07 /* Artisan.swift */,
 				4BF09B9D2681DBDC00DC8F07 /* Service.swift */,
+				68265E6326E5EF8C003A9AA6 /* ArtisanReview.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,6 +294,7 @@
 				4BF09B9A2681982100DC8F07 /* FirebaseAuth.swift */,
 				68265E5D26DF25A6003A9AA6 /* ArtisanCloudService.swift */,
 				68265E5F26DF4216003A9AA6 /* ArtisanCacheService.swift */,
+				68265E6D26E86E9F003A9AA6 /* AlamoWrapper */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -305,6 +320,17 @@
 				74D46C29459228CE298DB003 /* Pods_BeautyBellTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		68265E6D26E86E9F003A9AA6 /* AlamoWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				68265E6126E5E8BB003A9AA6 /* AlamoWrapper.swift */,
+				68265E6526E6061B003A9AA6 /* ArtisanServiceAPI.swift */,
+				68265E6926E60D0B003A9AA6 /* LoginAPI.swift */,
+				68265E6B26E721A9003A9AA6 /* RegisterAPIModel.swift */,
+			);
+			path = AlamoWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -589,9 +615,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68265E6626E6061B003A9AA6 /* ArtisanServiceAPI.swift in Sources */,
+				68265E6C26E721A9003A9AA6 /* RegisterAPIModel.swift in Sources */,
 				4BF97853269835B700D6873A /* DetailArtisanHeader.swift in Sources */,
 				4BE407C82699ACB4009BC6FF /* UserViewController.swift in Sources */,
 				4BF09B8026807A7C00DC8F07 /* Users.swift in Sources */,
+				68265E6226E5E8BC003A9AA6 /* AlamoWrapper.swift in Sources */,
 				4BF09B9E2681DBDC00DC8F07 /* Service.swift in Sources */,
 				4BF09B5426807A6400DC8F07 /* ViewController.swift in Sources */,
 				4BF97857269881FE00D6873A /* TabBarViewController.swift in Sources */,
@@ -599,6 +628,7 @@
 				68265E6026DF4216003A9AA6 /* ArtisanCacheService.swift in Sources */,
 				4BF09B8B2680954F00DC8F07 /* ArtisanTableViewCell.swift in Sources */,
 				4BF09BA226842B5500DC8F07 /* ServiceViewModel.swift in Sources */,
+				68265E6826E60C4B003A9AA6 /* Crypto.swift in Sources */,
 				4BF09B8226807A9200DC8F07 /* Artisan.swift in Sources */,
 				4BE407CB269B04E3009BC6FF /* RegisterViewController.swift in Sources */,
 				4B9151D526D8D812002117A5 /* ListViewModel.swift in Sources */,
@@ -606,8 +636,10 @@
 				4BF09B9726810F6300DC8F07 /* DetailArtisanViewController.swift in Sources */,
 				4BF9785126959B1500D6873A /* Extension.swift in Sources */,
 				4BF09B5026807A6400DC8F07 /* AppDelegate.swift in Sources */,
+				68265E6426E5EF8C003A9AA6 /* ArtisanReview.swift in Sources */,
 				4B9151F726DBE138002117A5 /* AppDatabase.swift in Sources */,
 				4BF09B9B2681982100DC8F07 /* FirebaseAuth.swift in Sources */,
+				68265E6A26E60D0B003A9AA6 /* LoginAPI.swift in Sources */,
 				4BF978612698FC0400D6873A /* ProfileView.swift in Sources */,
 				4BF09B8F2680958100DC8F07 /* DetailArtisanCollectionViewCell.swift in Sources */,
 				4BF9785D2698A7A700D6873A /* UserViewModel.swift in Sources */,
@@ -811,6 +843,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9G44XW2W74;
 				INFOPLIST_FILE = BeautyBell/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -820,7 +853,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.reyhan.iOSDev.BeautyBell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -831,6 +864,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9G44XW2W74;
 				INFOPLIST_FILE = BeautyBell/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -840,7 +874,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.reyhan.iOSDev.BeautyBell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

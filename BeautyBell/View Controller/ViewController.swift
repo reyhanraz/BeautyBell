@@ -10,6 +10,7 @@ import FirebaseAuth
 import FBSDKLoginKit
 import GoogleSignIn
 import L10n_swift
+import RxSwift
 
 
 class ViewController: UIViewController {
@@ -84,6 +85,8 @@ class ViewController: UIViewController {
     private let btnGIDSignin = GIDSignInButton()
 
     private var loginObserver: NSObjectProtocol?
+    
+    let disposeBag = DisposeBag()
     
 
     override func viewDidLoad() {
@@ -204,9 +207,25 @@ extension ViewController{
     }
     
     @objc private func buttonTapped(sender: UIButton){
-        animateButton(sender) {
-            self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+        guard let email = textFieldUserName.text, let password = textFieldPassword.text else {
+            return
         }
+        print("clicke")
+        let login = LoginApi()
+        login.requestLogin(email: email, password: password)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { login in
+                print("Loggin \(login)")
+            }, onCompleted: {
+                self.show(TabBarViewController(), sender: self)
+            })
+        .disposed(by: disposeBag)
+        login.failed.asObservable().subscribe { data in
+            let data = data.element![0]
+            let message = data.message
+            let parameter = data.parameter.capitalized
+            self.showAlert(title: "Error", message: "\(parameter) \(message)")
+        }.disposed(by: disposeBag)
     }
     @objc private func buttonFacebookTapped(sender: UIButton){
         animateButton(sender) {
@@ -215,8 +234,20 @@ extension ViewController{
     }
     
     @objc private func buttonRegisterTapped(sender: UIButton){
+        print("clicke")
+        let regis = RegisterAPI()
+        regis.registerUser(name: "reyhan", email: "reyhanazzami@gmail.com", password: "lalalala", phone: "+6281281417601")
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { register in
+                print("Register \(register)")
+            })
+        .disposed(by: disposeBag)
+        regis.failed.asObservable().subscribe { data in
+            self.showAlert(title: "Error", message: data[0].message)
+        }.disposed(by: disposeBag)
+
         animateButton(sender) {
-            self.navigationController?.present(RegisterViewController(), animated: true, completion: nil)
+//            self.navigationController?.present(RegisterViewController(), animated: true, completion: nil)
         }
     }
     @objc private func buttonGoogleTapped(sender: UIButton){

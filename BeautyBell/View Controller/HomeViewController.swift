@@ -21,12 +21,14 @@ class HomeViewController: UIViewController {
         let lbl = UILabel()
         lbl.text = "List Artisan"
         lbl.font = UIFont.boldSystemFont(ofSize: 30)
+        lbl.isSkeletonable = true
         return lbl
     }()
     var searchResult = [ArtisanViewModel]()
     let searchController = UISearchController(searchResultsController: nil)
     var _listViewModel: ListViewModel?
     let disposeBag = DisposeBag()
+    var observer = PublishSubject<[ArtisanViewModel]>()
 
 
 
@@ -34,7 +36,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.tabBarItem.image = UIImage(systemName: "house")
         self.navigationItem.largeTitleDisplayMode = .always
-//        searchController.searchResultsUpdater = self
+        searchController.searchResultsUpdater = self
         view.backgroundColor = .white
         getData()
         setupTableView()
@@ -85,8 +87,7 @@ extension HomeViewController{
     }
     
     func binding(){
-        _listViewModel?.getAll()
-            .asObservable()
+        _listViewModel?.getAll().asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: "ArtisanTableViewCell", cellType: ArtisanTableViewCell.self))
                 {row, model, cell in
                     cell.artisanViewModel = model
@@ -105,13 +106,18 @@ extension HomeViewController{
             })
             .disposed(by: disposeBag)
     }
-//    func filterContent(for searchText: String) {
-//
+    
+    
+    func filterContent(for searchText: String) {
+        
+        
+        
+
 //        searchResult = Artisans.filter({ (artisan: ArtisanViewModel) -> Bool in
 //            let match = artisan.artisanName.range(of: searchText, options: .caseInsensitive)
 //                return match != nil
 //            })
-//        }
+        }
 }
 
 //extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
@@ -133,11 +139,11 @@ extension HomeViewController{
 //    }
 //}
 //
-//extension HomeViewController: UISearchResultsUpdating{
-//    func updateSearchResults(for searchController: UISearchController) {
-//        if let searchText = searchController.searchBar.text {
-//            filterContent(for: searchText)
-//            tableView.reloadData()
-//        }
-//    }
-//}
+extension HomeViewController: UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterContent(for: searchText)
+            tableView.reloadData()
+        }
+    }
+}
