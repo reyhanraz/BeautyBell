@@ -21,7 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
           
             let window = UIWindow(windowScene: windowScene)
             let navVC = UINavigationController()
-            navVC.addChild(ViewController())
+//            navVC.addChild(ViewController())
+            navVC.addChild(MapViewController())
             window.rootViewController = navVC // Your initial view controller.
             window.makeKeyAndVisible()
             self.window = window

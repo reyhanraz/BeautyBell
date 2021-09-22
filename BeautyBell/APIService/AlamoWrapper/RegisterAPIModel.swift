@@ -24,7 +24,15 @@ struct RegisData: Codable {
 }
 
 class RegisterAPI: AlamoWrapper{
-    
+    let failedProperty = PublishSubject<[DataError]>()
+    public let failed: Driver<[DataError]>
+
+    override init() {
+        failed = failedProperty.asDriver(onErrorDriveWith: .empty())
+
+        super.init()
+
+    }
     func registerUser(name: String, email: String, password: String, phone: String) -> Observable<RegisterAPIModel>{
         let param = [
             "name" : name,
@@ -33,7 +41,7 @@ class RegisterAPI: AlamoWrapper{
             "phone" : phone
         ]
        
-        return request(endPoint: "-customerRegister", method: .post, parameter: param, JSONencoding: true)
+        return request(endPoint: "-customerRegister", method: .post, parameter: param, JSONencoding: true, failedProperty: failedProperty)
         
     }
 }

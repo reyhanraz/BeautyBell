@@ -37,16 +37,6 @@ extension ApiError: LocalizedError{
 
 class AlamoWrapper : NSObject{
     
-    let failedProperty = PublishSubject<[DataError]>()
-    public let failed: Driver<[DataError]>
-
-    override init() {
-        failed = failedProperty.asDriver(onErrorDriveWith: .empty())
-
-        super.init()
-
-    }
-    
     public static var url :String = "https://asia-southeast2-beautybell-dashboard.cloudfunctions.net/beautybell-stg"
     
     public static var modelIdentifier: String {
@@ -113,33 +103,30 @@ class AlamoWrapper : NSObject{
     }
     
     
-    func request<T: Codable>(endPoint: String, method: Method, parameter: Parameters, JSONencoding: Bool = false) -> Observable<T>{
+    func request<T: Codable>(endPoint: String, method: Method, parameter: Parameters, JSONencoding: Bool = false, failedProperty: PublishSubject<[DataError]>) -> Observable<T>{
         var encoding : ParameterEncoding = URLEncoding.default
         if JSONencoding{
             encoding = JSONEncoding.default
         }
         return Observable<T>.create { observer in
-            AF.request(AlamoWrapper.url+endPoint,method: method.getMethod(), parameters: parameter, encoding: encoding, headers: HTTPHeaders(AlamoWrapper.httpHeaders)).responseJSON { response in
+            AF.request(AlamoWrapper.url+endPoint,method: method.getMethod(), parameters: parameter, encoding: encoding, headers: HTTPHeaders(AlamoWrapper.httpHeaders)).response{ response in
                         switch response.result {
-                        case .success(_):
+                        case .success(let responseData):
+                            guard let responseData = responseData else {
+                                return
+                            }
                             do {
-                                let data = try JSONDecoder().decode(T.self, from: response.data!)
-                                print(response.value)
-                                print(data)
+                                let data = try JSONDecoder().decode(T.self, from: responseData)
                                 observer.onNext(data)
-                                observer.onCompleted()
-                            } catch _ {
-                                do {
-                                    print(response.value)
-                                    let data = try JSONDecoder().decode(Status.self, from: response.data!)
-                                    print(data.error)
-                                    self.failedProperty.onNext(data.error!)
-                                } catch let error {
-                                    print(error)
-                                    print(response.value)
-                                    observer.onError(ApiError.loginInvalid)
-                                }
+                            } catch {
                                 observer.onError(ApiError.loginInvalid)
+                            }
+                            
+                            do {
+                                let data = try JSONDecoder().decode(Status.self, from: responseData)
+                                failedProperty.onNext(data.error!)
+                            } catch  {
+                                
                             }
                         case .failure(let error):
                             print(error)
@@ -161,36 +148,5 @@ class AlamoWrapper : NSObject{
             
                     return Disposables.create()
                 }
-        
-//        return Observable.create {[weak self] observer in
-//            guard let strongSelf = self else{
-//                return Disposables.create()}
-//            AF.request(AlamoWrapper.url + endPoint, method: method.getMethod(), parameters: parameter, encoding: encoding, headers: HTTPHeaders(strongSelf.httpHeaders) ).responseData(completionHandler: {response in
-//                switch response.result{
-//                    case .success(let res):
-//                        if let code = response.response?.statusCode{
-//                            switch code {
-//                                case 200...299:
-//                                    do {
-//                                        let returned = try JSONDecoder().decode(type, from: res)
-//                                        print(returned)
-//                                        observer.onNext(returned)
-//                                    } catch let error {
-//                                        print(String(data: res, encoding: .utf8) ?? "nothing received")
-//                                        observer.onError(error)
-//                                    }
-//                                default:
-//                                    let error = NSError(domain: response.debugDescription, code: code, userInfo: response.response?.allHeaderFields as? [String: Any])
-//                                    print(error.localizedDescription)
-//                                    observer.onError(error)
-//                                }
-//                        }
-//                    case .failure(let error):
-//                        print(error.localizedDescription)
-//                        observer.onError(error)
-//                    }
-//                })
-//            return Disposables.create()
-//        }
     }
 }

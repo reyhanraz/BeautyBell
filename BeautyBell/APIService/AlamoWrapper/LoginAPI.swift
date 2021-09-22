@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 struct LoginAPIModel: Codable {
     public let status: Status.Detail
@@ -45,10 +46,19 @@ struct User: Codable {
 }
 
 class LoginApi: AlamoWrapper{
+    let failedProperty = PublishSubject<[DataError]>()
+    public let failed: Driver<[DataError]>
+
+    override init() {
+        failed = failedProperty.asDriver(onErrorDriveWith: .empty())
+
+        super.init()
+
+    }
     func requestLogin(email: String, password: String) -> Observable<LoginAPIModel>{
         let endPoint = "-customerLogin"
         let body = ["email" : email,
                     "password" : password]
-        return request(endPoint: endPoint, method: .post, parameter: body, JSONencoding: true)
+        return request(endPoint: endPoint, method: .post, parameter: body, JSONencoding: true, failedProperty: failedProperty)
     }
 }

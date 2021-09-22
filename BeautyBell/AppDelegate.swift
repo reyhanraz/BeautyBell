@@ -11,6 +11,8 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 import GRDB
+import GoogleMaps
+import GooglePlaces
 
 public protocol AppDelegateType {
     var dbQueue: DatabaseQueue! { get }
@@ -35,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppDelegateType {
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
+        GMSServices.provideAPIKey("AIzaSyArS0GikL_aZLZBxX0rnSq3Aqi76P63J28")
+        GMSPlacesClient.provideAPIKey("AIzaSyArS0GikL_aZLZBxX0rnSq3Aqi76P63J28")
 
         GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance()?.delegate = self

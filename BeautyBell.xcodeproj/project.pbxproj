@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		120AD44237273FDA7C766FD1 /* Pods_BeautyBellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D46C29459228CE298DB003 /* Pods_BeautyBellTests.framework */; };
-		317F8C86C4EFA4F977B6616F /* Pods_BeautyBell_BeautyBellUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4C9486C4F3483703237278 /* Pods_BeautyBell_BeautyBellUITests.framework */; };
 		4B9151D526D8D812002117A5 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9151D426D8D812002117A5 /* ListViewModel.swift */; };
 		4B9151EC26DB7007002117A5 /* Localization.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B9151EE26DB7007002117A5 /* Localization.plist */; };
 		4B9151F126DB703A002117A5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B9151F326DB703A002117A5 /* Localizable.strings */; };
@@ -23,7 +22,6 @@
 		4BF09B5926807A6600DC8F07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF09B5826807A6600DC8F07 /* Assets.xcassets */; };
 		4BF09B5C26807A6600DC8F07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BF09B5A26807A6600DC8F07 /* LaunchScreen.storyboard */; };
 		4BF09B6726807A6700DC8F07 /* BeautyBellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B6626807A6700DC8F07 /* BeautyBellTests.swift */; };
-		4BF09B7226807A6700DC8F07 /* BeautyBellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B7126807A6700DC8F07 /* BeautyBellUITests.swift */; };
 		4BF09B8026807A7C00DC8F07 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B7F26807A7C00DC8F07 /* Users.swift */; };
 		4BF09B8226807A9200DC8F07 /* Artisan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B8126807A9200DC8F07 /* Artisan.swift */; };
 		4BF09B852680945B00DC8F07 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF09B842680945B00DC8F07 /* HomeViewController.swift */; };
@@ -45,6 +43,10 @@
 		4BF9785D2698A7A700D6873A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9785C2698A7A700D6873A /* UserViewModel.swift */; };
 		4BF978612698FC0400D6873A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF978602698FC0400D6873A /* ProfileView.swift */; };
 		4BF978632698FC3900D6873A /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF978622698FC3900D6873A /* ProfileView.xib */; };
+		681C39BB26F9BD7F00108FDF /* MapDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681C39BA26F9BD7F00108FDF /* MapDetail.swift */; };
+		681C39BF26FA165400108FDF /* MapDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681C39BE26FA165400108FDF /* MapDetail.xib */; };
+		681C39C126FA4A5400108FDF /* GoogleGeocodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681C39C026FA4A5400108FDF /* GoogleGeocodeTest.swift */; };
+		681C39C326FAEEE000108FDF /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681C39C226FAEEE000108FDF /* ResultController.swift */; };
 		68265E5E26DF25A6003A9AA6 /* ArtisanCloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E5D26DF25A6003A9AA6 /* ArtisanCloudService.swift */; };
 		68265E6026DF4216003A9AA6 /* ArtisanCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E5F26DF4216003A9AA6 /* ArtisanCacheService.swift */; };
 		68265E6226E5E8BC003A9AA6 /* AlamoWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E6126E5E8BB003A9AA6 /* AlamoWrapper.swift */; };
@@ -53,18 +55,12 @@
 		68265E6826E60C4B003A9AA6 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E6726E60C4B003A9AA6 /* Crypto.swift */; };
 		68265E6A26E60D0B003A9AA6 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E6926E60D0B003A9AA6 /* LoginAPI.swift */; };
 		68265E6C26E721A9003A9AA6 /* RegisterAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68265E6B26E721A9003A9AA6 /* RegisterAPIModel.swift */; };
+		68608CD326EF35790017EE4B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68608CD226EF35790017EE4B /* MapViewController.swift */; };
 		82484E7A847E35C223FE78A4 /* Pods_BeautyBell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9D19D486F90FF25EB49660 /* Pods_BeautyBell.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		4BF09B6326807A6700DC8F07 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4BF09B4426807A6400DC8F07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4BF09B4B26807A6400DC8F07;
-			remoteInfo = BeautyBell;
-		};
-		4BF09B6E26807A6700DC8F07 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4BF09B4426807A6400DC8F07 /* Project object */;
 			proxyType = 1;
@@ -93,9 +89,6 @@
 		4BF09B6226807A6700DC8F07 /* BeautyBellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeautyBellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF09B6626807A6700DC8F07 /* BeautyBellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyBellTests.swift; sourceTree = "<group>"; };
 		4BF09B6826807A6700DC8F07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BF09B6D26807A6700DC8F07 /* BeautyBellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeautyBellUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BF09B7126807A6700DC8F07 /* BeautyBellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyBellUITests.swift; sourceTree = "<group>"; };
-		4BF09B7326807A6700DC8F07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BF09B7F26807A7C00DC8F07 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		4BF09B8126807A9200DC8F07 /* Artisan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artisan.swift; sourceTree = "<group>"; };
 		4BF09B842680945B00DC8F07 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +113,10 @@
 		5A4C9486C4F3483703237278 /* Pods_BeautyBell_BeautyBellUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyBell_BeautyBellUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9D19D486F90FF25EB49660 /* Pods_BeautyBell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyBell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		609E49BFA04D5F2C41B31576 /* Pods-BeautyBell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyBell.debug.xcconfig"; path = "Target Support Files/Pods-BeautyBell/Pods-BeautyBell.debug.xcconfig"; sourceTree = "<group>"; };
+		681C39BA26F9BD7F00108FDF /* MapDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetail.swift; sourceTree = "<group>"; };
+		681C39BE26FA165400108FDF /* MapDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapDetail.xib; sourceTree = "<group>"; };
+		681C39C026FA4A5400108FDF /* GoogleGeocodeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleGeocodeTest.swift; sourceTree = "<group>"; };
+		681C39C226FAEEE000108FDF /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
 		68265E5D26DF25A6003A9AA6 /* ArtisanCloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisanCloudService.swift; sourceTree = "<group>"; };
 		68265E5F26DF4216003A9AA6 /* ArtisanCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtisanCacheService.swift; sourceTree = "<group>"; };
 		68265E6126E5E8BB003A9AA6 /* AlamoWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoWrapper.swift; sourceTree = "<group>"; };
@@ -128,6 +125,7 @@
 		68265E6726E60C4B003A9AA6 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		68265E6926E60D0B003A9AA6 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		68265E6B26E721A9003A9AA6 /* RegisterAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAPIModel.swift; sourceTree = "<group>"; };
+		68608CD226EF35790017EE4B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6E5E12C606E0009528E23AA1 /* Pods-BeautyBellTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyBellTests.debug.xcconfig"; path = "Target Support Files/Pods-BeautyBellTests/Pods-BeautyBellTests.debug.xcconfig"; sourceTree = "<group>"; };
 		74D46C29459228CE298DB003 /* Pods_BeautyBellTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyBellTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8229034B27EE47DCB60BF540 /* Pods-BeautyBellTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyBellTests.release.xcconfig"; path = "Target Support Files/Pods-BeautyBellTests/Pods-BeautyBellTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,14 +148,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				120AD44237273FDA7C766FD1 /* Pods_BeautyBellTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4BF09B6A26807A6700DC8F07 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				317F8C86C4EFA4F977B6616F /* Pods_BeautyBell_BeautyBellUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +178,6 @@
 			children = (
 				4BF09B4E26807A6400DC8F07 /* BeautyBell */,
 				4BF09B6526807A6700DC8F07 /* BeautyBellTests */,
-				4BF09B7026807A6700DC8F07 /* BeautyBellUITests */,
 				4BF09B4D26807A6400DC8F07 /* Products */,
 				4D18CE5D0CFB2811A1E8C2C1 /* Pods */,
 				57AFD51C6B70D69F9E485630 /* Frameworks */,
@@ -200,7 +189,6 @@
 			children = (
 				4BF09B4C26807A6400DC8F07 /* BeautyBell.app */,
 				4BF09B6226807A6700DC8F07 /* BeautyBellTests.xctest */,
-				4BF09B6D26807A6700DC8F07 /* BeautyBellUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,6 +200,7 @@
 				4BF09B98268179AA00DC8F07 /* GoogleService-Info.plist */,
 				4BF09B4F26807A6400DC8F07 /* AppDelegate.swift */,
 				4BF09B5126807A6400DC8F07 /* SceneDelegate.swift */,
+				681C39C426FAEF1900108FDF /* Maps */,
 				4BF09B88268094D300DC8F07 /* View Controller */,
 				4BF09B5526807A6400DC8F07 /* Main.storyboard */,
 				4BF09B5826807A6600DC8F07 /* Assets.xcassets */,
@@ -232,18 +221,10 @@
 			isa = PBXGroup;
 			children = (
 				4BF09B6626807A6700DC8F07 /* BeautyBellTests.swift */,
+				681C39C026FA4A5400108FDF /* GoogleGeocodeTest.swift */,
 				4BF09B6826807A6700DC8F07 /* Info.plist */,
 			);
 			path = BeautyBellTests;
-			sourceTree = "<group>";
-		};
-		4BF09B7026807A6700DC8F07 /* BeautyBellUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4BF09B7126807A6700DC8F07 /* BeautyBellUITests.swift */,
-				4BF09B7326807A6700DC8F07 /* Info.plist */,
-			);
-			path = BeautyBellUITests;
 			sourceTree = "<group>";
 		};
 		4BF09B8326807A9800DC8F07 /* Model */ = {
@@ -322,6 +303,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		681C39C426FAEF1900108FDF /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				68608CD226EF35790017EE4B /* MapViewController.swift */,
+				681C39C226FAEEE000108FDF /* ResultController.swift */,
+				681C39BA26F9BD7F00108FDF /* MapDetail.swift */,
+				681C39BE26FA165400108FDF /* MapDetail.xib */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
 		68265E6D26E86E9F003A9AA6 /* AlamoWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,27 +367,6 @@
 			productReference = 4BF09B6226807A6700DC8F07 /* BeautyBellTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4BF09B6C26807A6700DC8F07 /* BeautyBellUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4BF09B7C26807A6700DC8F07 /* Build configuration list for PBXNativeTarget "BeautyBellUITests" */;
-			buildPhases = (
-				16B32B17B74B57CF8D9B8E60 /* [CP] Check Pods Manifest.lock */,
-				4BF09B6926807A6700DC8F07 /* Sources */,
-				4BF09B6A26807A6700DC8F07 /* Frameworks */,
-				4BF09B6B26807A6700DC8F07 /* Resources */,
-				090933021A12AAEB38909AD9 /* [CP] Embed Pods Frameworks */,
-				C4C5FB33278280E0CE13BA9F /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4BF09B6F26807A6700DC8F07 /* PBXTargetDependency */,
-			);
-			name = BeautyBellUITests;
-			productName = BeautyBellUITests;
-			productReference = 4BF09B6D26807A6700DC8F07 /* BeautyBellUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -409,10 +380,6 @@
 						CreatedOnToolsVersion = 12.5;
 					};
 					4BF09B6126807A6700DC8F07 = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = 4BF09B4B26807A6400DC8F07;
-					};
-					4BF09B6C26807A6700DC8F07 = {
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 4BF09B4B26807A6400DC8F07;
 					};
@@ -434,7 +401,6 @@
 			targets = (
 				4BF09B4B26807A6400DC8F07 /* BeautyBell */,
 				4BF09B6126807A6700DC8F07 /* BeautyBellTests */,
-				4BF09B6C26807A6700DC8F07 /* BeautyBellUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -448,6 +414,7 @@
 				4BF09B5C26807A6600DC8F07 /* LaunchScreen.storyboard in Resources */,
 				4BF09B5926807A6600DC8F07 /* Assets.xcassets in Resources */,
 				4BF97855269835D800D6873A /* DetailArtisanHeader.xib in Resources */,
+				681C39BF26FA165400108FDF /* MapDetail.xib in Resources */,
 				4BF978632698FC3900D6873A /* ProfileView.xib in Resources */,
 				4B9151F126DB703A002117A5 /* Localizable.strings in Resources */,
 				4BF09B8C2680954F00DC8F07 /* ArtisanTableViewCell.xib in Resources */,
@@ -464,55 +431,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4BF09B6B26807A6700DC8F07 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		090933021A12AAEB38909AD9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeautyBell-BeautyBellUITests/Pods-BeautyBell-BeautyBellUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeautyBell-BeautyBellUITests/Pods-BeautyBell-BeautyBellUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeautyBell-BeautyBellUITests/Pods-BeautyBell-BeautyBellUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		16B32B17B74B57CF8D9B8E60 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BeautyBell-BeautyBellUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		20544DB158B0563EF55823CA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -550,23 +471,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C4C5FB33278280E0CE13BA9F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeautyBell-BeautyBellUITests/Pods-BeautyBell-BeautyBellUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeautyBell-BeautyBellUITests/Pods-BeautyBell-BeautyBellUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeautyBell-BeautyBellUITests/Pods-BeautyBell-BeautyBellUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DF4FAB993815DC0CB0CAB640 /* [CP] Embed Pods Frameworks */ = {
@@ -618,6 +522,7 @@
 				68265E6626E6061B003A9AA6 /* ArtisanServiceAPI.swift in Sources */,
 				68265E6C26E721A9003A9AA6 /* RegisterAPIModel.swift in Sources */,
 				4BF97853269835B700D6873A /* DetailArtisanHeader.swift in Sources */,
+				681C39BB26F9BD7F00108FDF /* MapDetail.swift in Sources */,
 				4BE407C82699ACB4009BC6FF /* UserViewController.swift in Sources */,
 				4BF09B8026807A7C00DC8F07 /* Users.swift in Sources */,
 				68265E6226E5E8BC003A9AA6 /* AlamoWrapper.swift in Sources */,
@@ -626,6 +531,7 @@
 				4BF97857269881FE00D6873A /* TabBarViewController.swift in Sources */,
 				4B9151F926DBE2CA002117A5 /* ArtisanSQLCache.swift in Sources */,
 				68265E6026DF4216003A9AA6 /* ArtisanCacheService.swift in Sources */,
+				681C39C326FAEEE000108FDF /* ResultController.swift in Sources */,
 				4BF09B8B2680954F00DC8F07 /* ArtisanTableViewCell.swift in Sources */,
 				4BF09BA226842B5500DC8F07 /* ServiceViewModel.swift in Sources */,
 				68265E6826E60C4B003A9AA6 /* Crypto.swift in Sources */,
@@ -637,6 +543,7 @@
 				4BF9785126959B1500D6873A /* Extension.swift in Sources */,
 				4BF09B5026807A6400DC8F07 /* AppDelegate.swift in Sources */,
 				68265E6426E5EF8C003A9AA6 /* ArtisanReview.swift in Sources */,
+				68608CD326EF35790017EE4B /* MapViewController.swift in Sources */,
 				4B9151F726DBE138002117A5 /* AppDatabase.swift in Sources */,
 				4BF09B9B2681982100DC8F07 /* FirebaseAuth.swift in Sources */,
 				68265E6A26E60D0B003A9AA6 /* LoginAPI.swift in Sources */,
@@ -655,14 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF09B6726807A6700DC8F07 /* BeautyBellTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4BF09B6926807A6700DC8F07 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4BF09B7226807A6700DC8F07 /* BeautyBellUITests.swift in Sources */,
+				681C39C126FA4A5400108FDF /* GoogleGeocodeTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,11 +573,6 @@
 			isa = PBXTargetDependency;
 			target = 4BF09B4B26807A6400DC8F07 /* BeautyBell */;
 			targetProxy = 4BF09B6326807A6700DC8F07 /* PBXContainerItemProxy */;
-		};
-		4BF09B6F26807A6700DC8F07 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4BF09B4B26807A6400DC8F07 /* BeautyBell */;
-			targetProxy = 4BF09B6E26807A6700DC8F07 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -924,48 +819,6 @@
 			};
 			name = Release;
 		};
-		4BF09B7D26807A6700DC8F07 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0415660F7F0775D711DCABA /* Pods-BeautyBell-BeautyBellUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9G44XW2W74;
-				INFOPLIST_FILE = BeautyBellUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.reyhan.iOSDev.BeautyBellUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BeautyBell;
-			};
-			name = Debug;
-		};
-		4BF09B7E26807A6700DC8F07 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC008BA55CB076B20FE3CF8E /* Pods-BeautyBell-BeautyBellUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9G44XW2W74;
-				INFOPLIST_FILE = BeautyBellUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.reyhan.iOSDev.BeautyBellUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BeautyBell;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -992,15 +845,6 @@
 			buildConfigurations = (
 				4BF09B7A26807A6700DC8F07 /* Debug */,
 				4BF09B7B26807A6700DC8F07 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4BF09B7C26807A6700DC8F07 /* Build configuration list for PBXNativeTarget "BeautyBellUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4BF09B7D26807A6700DC8F07 /* Debug */,
-				4BF09B7E26807A6700DC8F07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
